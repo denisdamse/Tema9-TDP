@@ -1,6 +1,7 @@
 let dimensiuneBloc=75;
 let matriceTabla=[];
 let v=[];
+let numberOfPawns=0;
 function setup()
 {
     createCanvas(600,600);
@@ -35,8 +36,11 @@ const chessTable={
                 }
                 fill(matriceTabla[i][j].culoare());
                 rect(matriceTabla[i][j].coordonataX,matriceTabla[i][j].coordonataY,dimensiuneBloc,dimensiuneBloc);
-                if(matriceTabla[i][j].ifPawn==true)
-                chessTable.pawn(i*dimensiuneBloc+dimensiuneBloc/2,j*dimensiuneBloc+dimensiuneBloc/2,matriceTabla[i][j].culoare());
+                if(matriceTabla[i][j].ifPawn==true && numberOfPawns<=16)
+                {
+                    chessTable.pawn(i*dimensiuneBloc+dimensiuneBloc/2,j*dimensiuneBloc+dimensiuneBloc/2,matriceTabla[i][j].culoare());
+                    numberOfPawns++;
+                }
             }
         }
     },
